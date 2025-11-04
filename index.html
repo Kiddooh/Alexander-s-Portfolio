@@ -2313,7 +2313,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Alexander Kathanzu. All Rights Reserved.</p>
+                <p>&copy; 2023 Alexander Kathanzu. All Rights Reserved.</p>
                 <p>Designed by Alexander N. Kathanzu</p>
             </div>
         </div>
@@ -2508,13 +2508,13 @@
                 button.addEventListener('click', function(e) {
                     e.preventDefault();
                     
-                    // Create a  PDF download
+                    // Create a fake PDF download
                     const link = document.createElement('a');
-                    link.href = '#'; Resume Folder/Alexander_Nzioka_CV_2025_resume.docx.pdf
-                    link.download = "Alexander_Nzioka_CV_2025_resume.docx.pdf";
-                    document.body.appendChild(Alexander_Nzioka_CV_2025_resume.docx.pdf);
+                    link.href = '#'; // In a real implementation, this would be the path to your CV file
+                    link.download = "Alexander_Kathanzu_CV.pdf";
+                    document.body.appendChild(link);
                     link.click();
-                    document.body.removeChild(Alexander_Nzioka_CV_2025_resume.docx.pdf);
+                    document.body.removeChild(link);
                     
                     // Show success message
                     alert('Alexander_Nzioka_CV_2025_resume.docx.pdf has started!');
