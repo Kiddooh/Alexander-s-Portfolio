@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alexander Kathanzu | Front-EndDeveloper & Digital Solutions Specialist</title>
+    <title>Alexander Kathanzu | Front-End Developer & Digital Solutions Specialist</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -1284,6 +1284,111 @@
             }
         }
         
+        /* About Page Styles */
+        .about-page {
+            padding-top: 120px;
+            background-color: var(--bg-color);
+            min-height: 100vh;
+        }
+        
+        .about-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517697471339-4aa32003c11a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .about-hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .about-hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--light);
+        }
+        
+        .attributes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .attribute-card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .attribute-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--secondary);
+            transform: scaleY(0);
+            transition: var(--transition);
+        }
+        
+        .attribute-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .attribute-card:hover:before {
+            transform: scaleY(1);
+        }
+        
+        .attribute-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .attribute-card i {
+            color: var(--secondary);
+        }
+        
+        .hobbies-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .hobby-item {
+            background-color: var(--light);
+            padding: 15px 20px;
+            border-radius: 30px;
+            text-align: center;
+            transition: var(--transition);
+            color: var(--primary);
+        }
+        
+        .hobby-item:hover {
+            background-color: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
         /* Responsive Styles */
         @media (max-width: 992px) {
             .about-content, .resume-container, .contact-container {
@@ -1307,6 +1412,10 @@
             
             .blog-post-title {
                 font-size: 2rem;
+            }
+            
+            .about-hero h1 {
+                font-size: 2.5rem;
             }
         }
         
@@ -1383,6 +1492,10 @@
                 flex-direction: column;
                 gap: 15px;
             }
+            
+            .about-hero h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
@@ -1397,7 +1510,7 @@
                 </div>
                 <ul>
                     <li><a href="#home" class="nav-link active" data-page="home">Home</a></li>
-                    <li><a href="#about" class="nav-link" data-page="home">About</a></li>
+                    <li><a href="#about" class="nav-link" data-page="about">About</a></li>
                     <li><a href="#portfolio" class="nav-link" data-page="portfolio">Portfolio</a></li>
                     <li><a href="#blog" class="nav-link" data-page="blog">Blog</a></li>
                     <li><a href="#contact" class="nav-link" data-page="contact">Contact</a></li>
@@ -1477,13 +1590,13 @@
                         
                         <p>I am a passionate, versatile, and forward-thinking developer with a strong foundation in <strong>web development, digital marketing, and technical repairs.</strong> My tech journey started with simple computer study and grew into a full-scale passion that now spans <strong>Front-End Development, WordPress and Wix design, blockchain exploration, IPTV technology, and creative digital solutions.</strong></p>
                         
-                        <p>Over the years, I’ve built, designed, and managed websites for businesses-including my own <strong>IPTV brands</strong> and expanded into areas like <em>SEO, graphic design, and hardware repair.</em> This diversity gives me a rare advantage: I understand technology from both the <em>software</em> and <em>hardware side.</em> Whether I'm building a modern UI, customizing WordPress, optimizing online presence for brands, or repairing a device, I bring <strong>precision</strong> and <strong>creativity</strong> to every task.</p>
+                        <p>Over the years, I've built, designed, and managed websites for businesses-including my own <strong>IPTV brands</strong> and expanded into areas like <em>SEO, graphic design, and hardware repair.</em> This diversity gives me a rare advantage: I understand technology from both the <em>software</em> and <em>hardware side.</em> Whether I'm building a modern UI, customizing WordPress, optimizing online presence for brands, or repairing a device, I bring <strong>precision</strong> and <strong>creativity</strong> to every task.</p>
                         
                         <p>My experience also includes running and leading digital communities like <strong>TechTorch,</strong> building entrepreneurial projects, creating content strategies, and exploring advanced fields like AI, machine learning, and blockchain development. These interests shape my approach-always learning, always adapting, always innovating.</p>
                         
-                        <p>When I’m not coding at night <em>(my favorite time to work)</em>, you’ll find me exploring new technologies, networking with other professionals, studying AI/ML, learning chess tactics, creating business ideas, or enjoying music, travel, and good conversations.</p>
+                        <p>When I'm not coding at night <em>(my favorite time to work)</em>, you'll find me exploring new technologies, networking with other professionals, studying AI/ML, learning chess tactics, creating business ideas, or enjoying music, travel, and good conversations.</p>
                         
-                        <p><em>I’m driven by impact-creating solutions that are clean, fast, modern, and meaningful.</em></p>
+                        <p><em>I'm driven by impact-creating solutions that are clean, fast, modern, and meaningful.</em></p>
                         <div class="skills">
                             <div class="skill">Web Development (HTML, CSS, JavaScript)</div>
                             <div class="skill">WordPress</div>
@@ -1496,6 +1609,7 @@
                         </div>
                         
                         <a href="#" class="btn download-cv" style="margin-top: 30px;">Download Resume</a>
+                        <a href="#about" class="btn btn-outline nav-link" data-page="about" style="margin-top: 30px; margin-left: 15px;">Learn More About Me</a>
                     </div>
                 </div>
             </div>
@@ -1940,6 +2054,101 @@
         </section>
     </div>
 
+    <!-- About Page -->
+    <div id="about-page" class="page-container about-page">
+        <!-- About Hero Section -->
+        <section class="about-hero">
+            <div class="container">
+                <div class="about-hero-content">
+                    <h1>Personal Attributes & Interests</h1>
+                    <p>Discover what drives me personally and professionally</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personal Attributes Section -->
+        <section class="about-attributes">
+            <div class="container">
+                <h2 class="section-title">Personal Attributes</h2>
+                <div class="attributes-container">
+                    <div class="attribute-card">
+                        <h3><i class="fas fa-user-check"></i> Honest</h3>
+                        <p>Reliable, transparent, and committed to ethical conduct in both personal and professional spaces.</p>
+                    </div>
+                    <div class="attribute-card">
+                        <h3><i class="fas fa-hourglass-half"></i> Patient</h3>
+                        <p>Calm under pressure, effective at problem-solving, conflict resolution, and mentoring others.</p>
+                    </div>
+                    <div class="attribute-card">
+                        <h3><i class="fas fa-handshake"></i> Trustworthy</h3>
+                        <p>Consistent, confidential, dependable, and someone people can rely on for integrity and follow-through.</p>
+                    </div>
+                    <div class="attribute-card">
+                        <h3><i class="fas fa-user-shield"></i> Obedient</h3>
+                        <p>Respectful of authority, aligned with values, and adaptable to guidance and instructions.</p>
+                    </div>
+                    <div class="attribute-card">
+                        <h3><i class="fas fa-bolt"></i> Fast Learner</h3>
+                        <p>Quickly absorbs new concepts, technologies, and tools, making me efficient and productive in dynamic environments.</p>
+                    </div>
+                    <div class="attribute-card">
+                        <h3><i class="fas fa-lightbulb"></i> Creative Thinker</h3>
+                        <p>Approaches challenges from multiple angles and designs solutions that are both functional and innovative.</p>
+                    </div>
+                    <div class="attribute-card">
+                        <h3><i class="fas fa-tasks"></i> Disciplined</h3>
+                        <p>Self-motivated, focused, and committed to completing tasks with high standards.</p>
+                    </div>
+                    <div class="attribute-card">
+                        <h3><i class="fas fa-users"></i> Team-Oriented</h3>
+                        <p>Values collaboration, communication, and shared goals, especially when working across different skill sets.</p>
+                    </div>
+                    <div class="attribute-card">
+                        <h3><i class="fas fa-flag"></i> Leadership Mindset</h3>
+                        <p>Able to guide others, take initiative, and bring clarity to digital or technical projects.</p>
+                    </div>
+                    <div class="attribute-card">
+                        <h3><i class="fas fa-chart-bar"></i> Analytical</h3>
+                        <p>Breaks down complex problems into simple, workable solutions with attention to detail.</p>
+                    </div>
+                    <div class="attribute-card">
+                        <h3><i class="fas fa-sync-alt"></i> Adaptable</h3>
+                        <p>Flexible in fast-changing environments and comfortable switching between different roles—developer, designer, marketer, or technician.</p>
+                    </div>
+                    <div class="attribute-card">
+                        <h3><i class="fas fa-heart"></i> Empathetic</h3>
+                        <p>Understands people's needs, making communication, teamwork, and customer relations smooth and effective.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hobbies & Interests Section -->
+        <section class="about-hobbies">
+            <div class="container">
+                <h2 class="section-title">Hobbies & Personal Interests</h2>
+                <div class="hobbies-container">
+                    <div class="hobby-item">Socializing</div>
+                    <div class="hobby-item">Listening to Music</div>
+                    <div class="hobby-item">Traveling</div>
+                    <div class="hobby-item">Technology Exploration</div>
+                    <div class="hobby-item">Chess</div>
+                    <div class="hobby-item">Fitness & Wellness</div>
+                    <div class="hobby-item">Content Creation</div>
+                    <div class="hobby-item">Coding at Night</div>
+                    <div class="hobby-item">Community Engagement</div>
+                    <div class="hobby-item">Repair & Fixing</div>
+                    <div class="hobby-item">Reading & Research</div>
+                </div>
+                
+                <div style="margin-top: 50px; text-align: center;">
+                    <p>These interests reflect my well-rounded approach to life and work, combining technical expertise with creative expression and personal growth.</p>
+                    <a href="#contact" class="btn nav-link" data-page="contact" style="margin-top: 30px;">Let's Connect</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
     <!-- Portfolio Page -->
     <div id="portfolio-page" class="page-container portfolio-page">
         <div class="container">
@@ -2313,6 +2522,7 @@
                 <div class="logo">Alexander<span>Kathanzu</span></div>
                 <div class="footer-links">
                     <a href="#home" class="nav-link" data-page="home">Home</a>
+                    <a href="#about" class="nav-link" data-page="about">About</a>
                     <a href="#portfolio" class="nav-link" data-page="portfolio">Portfolio</a>
                     <a href="#blog" class="nav-link" data-page="blog">Blog</a>
                     <a href="#contact" class="nav-link" data-page="contact">Contact</a>
