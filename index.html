@@ -21,6 +21,7 @@
             --bg-color: #f9f9f9;
             --text-color: #333;
             --card-bg: white;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
         }
         
         .dark-mode {
@@ -35,6 +36,7 @@
             --bg-color: #2c3e50;
             --text-color: #ecf0f1;
             --card-bg: #34495e;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
         }
         
         * {
@@ -252,7 +254,7 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: var(--gradient);
             color: white;
             padding: 180px 0 100px;
             text-align: center;
@@ -950,7 +952,7 @@
         
         /* Stats Section */
         .stats {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: var(--gradient);
             color: white;
             padding: 80px 0;
         }
@@ -989,35 +991,6 @@
         /* Contact Page */
         .contact-page {
             padding-top: 120px;
-        }
-        
-        /* Hire Me Page */
-        .hire-page {
-            padding-top: 120px;
-            background-color: var(--bg-color);
-            min-height: 100vh;
-        }
-        
-        .hire-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: var(--card-bg);
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-        }
-        
-        .hire-form .form-group {
-            margin-bottom: 25px;
-        }
-        
-        .form-row {
-            display: flex;
-            gap: 20px;
-        }
-        
-        .form-row .form-group {
-            flex: 1;
         }
         
         /* Scroll to Top Button */
@@ -1389,6 +1362,136 @@
             transform: translateY(-3px);
         }
         
+        /* New Enhancements */
+        .floating-action-button {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 99;
+        }
+        
+        .floating-action-button:hover {
+            transform: scale(1.1);
+        }
+        
+        .enhanced-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .enhanced-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 0;
+        }
+        
+        .enhanced-card:hover::before {
+            opacity: 0.05;
+        }
+        
+        .enhanced-card > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(52, 152, 219, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+            }
+        }
+        
+        .glow {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--secondary), 0 0 20px var(--secondary);
+            }
+            to {
+                box-shadow: 0 0 10px #fff, 0 0 15px var(--secondary), 0 0 20px var(--secondary), 0 0 25px var(--secondary);
+            }
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark-mode .glass-effect {
+            background: rgba(0, 0, 0, 0.1);
+        }
+        
+        .gradient-text {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .stagger-animation > * {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: stagger 0.5s ease forwards;
+        }
+        
+        @keyframes stagger {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .stagger-animation > *:nth-child(1) { animation-delay: 0.1s; }
+        .stagger-animation > *:nth-child(2) { animation-delay: 0.2s; }
+        .stagger-animation > *:nth-child(3) { animation-delay: 0.3s; }
+        .stagger-animation > *:nth-child(4) { animation-delay: 0.4s; }
+        .stagger-animation > *:nth-child(5) { animation-delay: 0.5s; }
+        .stagger-animation > *:nth-child(6) { animation-delay: 0.6s; }
+        
         /* Responsive Styles */
         @media (max-width: 992px) {
             .about-content, .resume-container, .contact-container {
@@ -1403,11 +1506,6 @@
                 flex-direction: column;
                 gap: 20px;
                 text-align: center;
-            }
-            
-            .form-row {
-                flex-direction: column;
-                gap: 0;
             }
             
             .blog-post-title {
@@ -1458,10 +1556,6 @@
                 font-size: 2rem;
             }
             
-            .hire-container {
-                padding: 20px;
-            }
-            
             .header-container {
                 flex-wrap: wrap;
             }
@@ -1496,6 +1590,14 @@
             .about-hero h1 {
                 font-size: 2rem;
             }
+            
+            .floating-action-button {
+                bottom: 80px;
+                left: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
@@ -1520,7 +1622,6 @@
                 <button class="theme-toggle" id="theme-toggle">
                     <i class="fas fa-moon"></i>
                 </button>
-                <a href="#hire" class="btn nav-link" data-page="hire">Hire Me</a>
             </div>
         </div>
     </header>
@@ -1529,6 +1630,11 @@
     <button class="scroll-to-top" id="scroll-to-top">
         <i class="fas fa-chevron-up"></i>
     </button>
+
+    <!-- Floating Action Button -->
+    <div class="floating-action-button" id="contact-fab">
+        <i class="fas fa-comment"></i>
+    </div>
 
     <!-- Particles Background -->
     <div class="particles-container" id="particles-container"></div>
@@ -1556,7 +1662,7 @@
         <!-- Stats Section -->
         <section class="stats">
             <div class="container">
-                <div class="stats-container">
+                <div class="stats-container stagger-animation">
                     <div class="stat-item">
                         <div class="stat-number" data-count="50">0</div>
                         <div class="stat-text">Projects Completed</div>
@@ -1620,7 +1726,7 @@
             <div class="container">
                 <h2 class="section-title">Skills & Services</h2>
                 <div class="skills-container">
-                    <div class="skill-category">
+                    <div class="skill-category enhanced-card">
                         <h3><i class="fas fa-laptop-code"></i> Web Development</h3>
                         <div class="skill-bar">
                             <div class="skill-info">
@@ -1634,7 +1740,7 @@
                         <div class="skill-bar">
                             <div class="skill-info">
                                 <span>JavaScript</span>
-                                <span>75%</span>
+                                <span>85%</span>
                             </div>
                             <div class="skill-progress">
                                 <div class="skill-progress-bar" data-width="85"></div>
@@ -1650,7 +1756,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="skill-category">
+                    <div class="skill-category enhanced-card">
                         <h3><i class="fas fa-chart-line"></i> Digital Marketing</h3>
                         <div class="skill-bar">
                             <div class="skill-info">
@@ -1680,7 +1786,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="skill-category">
+                    <div class="skill-category enhanced-card">
                         <h3><i class="fas fa-tools"></i> Technical Services</h3>
                         <div class="skill-bar">
                             <div class="skill-info">
@@ -1713,8 +1819,8 @@
                 </div>
                 
                 <h3 style="text-align: center; margin-top: 50px;">Services & Pricing</h3>
-                <div class="services-grid">
-                    <div class="service-card">
+                <div class="services-grid stagger-animation">
+                    <div class="service-card enhanced-card">
                         <div class="service-icon">
                             <i class="fas fa-laptop-code"></i>
                         </div>
@@ -1722,7 +1828,7 @@
                         <p>Custom websites and web applications built with modern technologies.</p>
                         <div class="service-price">From $500</div>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card enhanced-card">
                         <div class="service-icon">
                             <i class="fas fa-chart-line"></i>
                         </div>
@@ -1730,7 +1836,7 @@
                         <p>SEO, social media management, and online advertising strategies.</p>
                         <div class="service-price">From $300</div>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card enhanced-card">
                         <div class="service-icon">
                             <i class="fas fa-palette"></i>
                         </div>
@@ -1738,7 +1844,7 @@
                         <p>Creative design solutions including logos and marketing materials.</p>
                         <div class="service-price">From $200</div>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card enhanced-card">
                         <div class="service-icon">
                             <i class="fas fa-tools"></i>
                         </div>
@@ -1749,7 +1855,7 @@
                 </div>
 
                 <!-- Service Calculator -->
-                <div class="calculator-container">
+                <div class="calculator-container enhanced-card">
                     <h3>Service Cost Calculator</h3>
                     <form id="service-calculator">
                         <div class="form-group">
@@ -1788,7 +1894,7 @@
         <section id="portfolio-preview" class="portfolio">
             <div class="container">
                 <h2 class="section-title">Featured Work</h2>
-                <div class="portfolio-grid">
+                <div class="portfolio-grid stagger-animation">
                     <div class="portfolio-item" data-category="web">
                         <div class="portfolio-img">
                             <img src="build/Minimalist Website Template – Clean, Bold, & Fully Responsive.jfif" alt="E-commerce Website">
@@ -1901,7 +2007,7 @@
                     <div class="testimonial-slider">
                         <div class="testimonial-track">
                             <div class="testimonial-slide">
-                                <div class="testimonial-card">
+                                <div class="testimonial-card enhanced-card">
                                     <p class="testimonial-text">Alexander delivered an outstanding website for our business. His attention to detail and technical expertise exceeded our expectations. We saw a 40% increase in online inquiries after launching the new site.</p>
                                     <div class="testimonial-author">
                                         <div class="testimonial-avatar">
@@ -1915,7 +2021,7 @@
                                 </div>
                             </div>
                             <div class="testimonial-slide">
-                                <div class="testimonial-card">
+                                <div class="testimonial-card enhanced-card">
                                     <p class="testimonial-text">Working with Alexander on our digital marketing campaign was a game-changer. His strategies helped us reach new audiences and significantly improved our online presence. Highly recommended!</p>
                                     <div class="testimonial-author">
                                         <div class="testimonial-avatar">
@@ -1929,7 +2035,7 @@
                                 </div>
                             </div>
                             <div class="testimonial-slide">
-                                <div class="testimonial-card">
+                                <div class="testimonial-card enhanced-card">
                                     <p class="testimonial-text">Alexander repaired my laptop quickly and professionally when others said it couldn't be fixed. His technical skills are impressive, and his customer service is exceptional. I'll definitely use his services again.</p>
                                     <div class="testimonial-author">
                                         <div class="testimonial-avatar">
@@ -1957,7 +2063,7 @@
         <section class="blog">
             <div class="container">
                 <h2 class="section-title">Latest Blog Posts</h2>
-                <div class="blog-grid">
+                <div class="blog-grid stagger-animation">
                     <div class="blog-card">
                         <div class="blog-img">
                             <img src="images/download (4).jfif" alt="Blog Post">
@@ -2070,52 +2176,52 @@
         <section class="about-attributes">
             <div class="container">
                 <h2 class="section-title">Personal Attributes</h2>
-                <div class="attributes-container">
-                    <div class="attribute-card">
+                <div class="attributes-container stagger-animation">
+                    <div class="attribute-card enhanced-card">
                         <h3><i class="fas fa-user-check"></i> Honest</h3>
                         <p>Reliable, transparent, and committed to ethical conduct in both personal and professional spaces.</p>
                     </div>
-                    <div class="attribute-card">
+                    <div class="attribute-card enhanced-card">
                         <h3><i class="fas fa-hourglass-half"></i> Patient</h3>
                         <p>Calm under pressure, effective at problem-solving, conflict resolution, and mentoring others.</p>
                     </div>
-                    <div class="attribute-card">
+                    <div class="attribute-card enhanced-card">
                         <h3><i class="fas fa-handshake"></i> Trustworthy</h3>
                         <p>Consistent, confidential, dependable, and someone people can rely on for integrity and follow-through.</p>
                     </div>
-                    <div class="attribute-card">
+                    <div class="attribute-card enhanced-card">
                         <h3><i class="fas fa-user-shield"></i> Obedient</h3>
                         <p>Respectful of authority, aligned with values, and adaptable to guidance and instructions.</p>
                     </div>
-                    <div class="attribute-card">
+                    <div class="attribute-card enhanced-card">
                         <h3><i class="fas fa-bolt"></i> Fast Learner</h3>
                         <p>Quickly absorbs new concepts, technologies, and tools, making me efficient and productive in dynamic environments.</p>
                     </div>
-                    <div class="attribute-card">
+                    <div class="attribute-card enhanced-card">
                         <h3><i class="fas fa-lightbulb"></i> Creative Thinker</h3>
                         <p>Approaches challenges from multiple angles and designs solutions that are both functional and innovative.</p>
                     </div>
-                    <div class="attribute-card">
+                    <div class="attribute-card enhanced-card">
                         <h3><i class="fas fa-tasks"></i> Disciplined</h3>
                         <p>Self-motivated, focused, and committed to completing tasks with high standards.</p>
                     </div>
-                    <div class="attribute-card">
+                    <div class="attribute-card enhanced-card">
                         <h3><i class="fas fa-users"></i> Team-Oriented</h3>
                         <p>Values collaboration, communication, and shared goals, especially when working across different skill sets.</p>
                     </div>
-                    <div class="attribute-card">
+                    <div class="attribute-card enhanced-card">
                         <h3><i class="fas fa-flag"></i> Leadership Mindset</h3>
                         <p>Able to guide others, take initiative, and bring clarity to digital or technical projects.</p>
                     </div>
-                    <div class="attribute-card">
+                    <div class="attribute-card enhanced-card">
                         <h3><i class="fas fa-chart-bar"></i> Analytical</h3>
                         <p>Breaks down complex problems into simple, workable solutions with attention to detail.</p>
                     </div>
-                    <div class="attribute-card">
+                    <div class="attribute-card enhanced-card">
                         <h3><i class="fas fa-sync-alt"></i> Adaptable</h3>
                         <p>Flexible in fast-changing environments and comfortable switching between different roles—developer, designer, marketer, or technician.</p>
                     </div>
-                    <div class="attribute-card">
+                    <div class="attribute-card enhanced-card">
                         <h3><i class="fas fa-heart"></i> Empathetic</h3>
                         <p>Understands people's needs, making communication, teamwork, and customer relations smooth and effective.</p>
                     </div>
@@ -2127,7 +2233,7 @@
         <section class="about-hobbies">
             <div class="container">
                 <h2 class="section-title">Hobbies & Personal Interests</h2>
-                <div class="hobbies-container">
+                <div class="hobbies-container stagger-animation">
                     <div class="hobby-item">Socializing</div>
                     <div class="hobby-item">Listening to Music</div>
                     <div class="hobby-item">Traveling</div>
@@ -2163,7 +2269,7 @@
                 <button class="filter-btn" data-filter="marketing">Digital Marketing</button>
                 <button class="filter-btn" data-filter="repair">Tech Repair</button>
             </div>
-            <div class="portfolio-grid">
+            <div class="portfolio-grid stagger-animation">
                 <div class="portfolio-item" data-category="web">
                     <div class="portfolio-img">
                         <img src="images/Website Design 🌐 Plants Shop.jfif" alt="E-commerce Website">
@@ -2262,7 +2368,7 @@
     <div id="blog-page" class="page-container blog-page">
         <div class="container">
             <h2 class="section-title">Blog Posts</h2>
-            <div class="blog-grid">
+            <div class="blog-grid stagger-animation">
                 <div class="blog-card">
                     <div class="blog-img">
                         <img src="images/11772ca4-af1a-4763-9014-4badf6cd0576.jfif" alt="Blog Post">
@@ -2397,124 +2503,6 @@
         </div>
     </div>
 
-    <!-- Hire Me Page -->
-    <div id="hire-page" class="page-container hire-page">
-        <div class="container">
-            <h2 class="section-title">Hire Me</h2>
-            <div class="hire-container">
-                <h3>Let's Work Together</h3>
-                <p>I'm available for freelance projects, full-time positions, and consulting work. Fill out the form below and I'll get back to you as soon as possible.</p>
-                
-                <form class="hire-form" id="hireForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="First Name" required>
-                            <div class="error-message">Please enter your first name</div>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Last Name" required>
-                            <div class="error-message">Please enter your last name</div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Your Email" required>
-                        <div class="error-message">Please enter a valid email</div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Company (Optional)">
-                    </div>
-                    <div class="form-group">
-                        <select class="form-control" required>
-                            <option value="" disabled selected>Select Service</option>
-                            <option value="web-development">Web Development</option>
-                            <option value="digital-marketing">Digital Marketing</option>
-                            <option value="graphic-design">Graphic Design</option>
-                            <option value="tech-repair">Tech Repair</option>
-                            <option value="consultation">Consultation</option>
-                            <option value="other">Other</option>
-                        </select>
-                        <div class="error-message">Please select a service</div>
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" placeholder="Project Details" rows="5" required></textarea>
-                        <div class="error-message">Please provide project details</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="budget">Project Budget (USD)</label>
-                        <input type="range" class="form-control" id="budget" min="100" max="10000" step="100" value="1000">
-                        <div id="budget-value">$1000</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="timeline">Project Timeline</label>
-                        <select class="form-control" id="timeline" required>
-                            <option value="" disabled selected>Select Timeline</option>
-                            <option value="1-week">1 Week</option>
-                            <option value="2-weeks">2 Weeks</option>
-                            <option value="1-month">1 Month</option>
-                            <option value="2-months">2 Months</option>
-                            <option value="3-months">3+ Months</option>
-                        </select>
-                        <div class="error-message">Please select a timeline</div>
-                    </div>
-                    <button type="submit" class="btn">Send Proposal Request</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Blog Post Detail Page -->
-    <div id="blog-post-page" class="page-container blog-post-page">
-        <div class="container">
-            <div class="blog-post-container">
-                <div class="blog-post-header">
-                    <h1 class="blog-post-title" id="blog-post-title">Blog Post Title</h1>
-                    <div class="blog-post-meta">
-                        <span><i class="far fa-calendar"></i> <span id="blog-post-date">June 15, 2023</span></span>
-                        <span><i class="far fa-user"></i> Alexander Kathanzu</span>
-                        <span><i class="far fa-comment"></i> <span id="blog-post-comments">5 Comments</span></span>
-                        <span><i class="far fa-clock"></i> 8 min read</span>
-                    </div>
-                </div>
-                <img src="build/987gvc.jpg" alt="Blog Post" class="blog-post-image" id="blog-post-image">
-                <div class="blog-post-content" id="blog-post-content">
-                    <p>Blog post content will appear here.</p>
-                </div>
-                <div class="blog-post-footer">
-                    <div class="blog-post-tags">
-                        <span class="blog-post-tag">Web Development</span>
-                        <span class="blog-post-tag">Trends</span>
-                        <span class="blog-post-tag">2023</span>
-                    </div>
-                    <div class="blog-post-navigation">
-                        <a href="#" class="btn btn-outline" id="prev-post"><i class="fas fa-arrow-left"></i> Previous Post</a>
-                        <a href="#blog" class="btn nav-link" data-page="blog">Back to Blog</a>
-                        <a href="#" class="btn btn-outline" id="next-post">Next Post <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Project Modal -->
-    <div class="project-modal" id="project-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="modal-title">Project Title</h3>
-                <button class="modal-close" id="modal-close">&times;</button>
-            </div>
-            <div class="modal-body">
-                <img src="build/98hn.jpg" alt="Project Image" class="modal-img" id="modal-img">
-                <div id="modal-description">
-                    <p>Project description will appear here.</p>
-                </div>
-                <div class="modal-links">
-                    <a href="#" class="btn" id="modal-live">Live Demo</a>
-                    <a href="#" class="btn btn-outline" id="modal-source">Source Code</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -2536,6 +2524,8 @@
     </footer>
 
     <script>
+        // Enhanced JavaScript with additional features
+        
         // Page Navigation
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
@@ -2576,6 +2566,9 @@
                 
                 // Scroll to top
                 window.scrollTo(0, 0);
+                
+                // Trigger stagger animations
+                triggerStaggerAnimations();
             }
             
             // Mobile Menu Toggle
@@ -2708,16 +2701,6 @@
                 return isValid;
             }
             
-            // Budget slider functionality
-            const budgetSlider = document.getElementById('budget');
-            const budgetValue = document.getElementById('budget-value');
-            
-            if (budgetSlider && budgetValue) {
-                budgetSlider.addEventListener('input', function() {
-                    budgetValue.textContent = '$' + this.value;
-                });
-            }
-            
             // CV Download functionality
             const downloadButtons = document.querySelectorAll('.download-cv');
             downloadButtons.forEach(button => {
@@ -2810,288 +2793,10 @@
                 observer.observe(statsSection);
             }
             
-            // Project Modal
-            const projectModal = document.getElementById('project-modal');
-            const modalClose = document.getElementById('modal-close');
-            const viewProjectButtons = document.querySelectorAll('.view-project');
-            
-            // Sample project data
-            const projects = {
-                1: {
-                    title: "E-commerce Website",
-                    description: "Fully responsive online store built with WordPress and WooCommerce. This project involved creating a complete e-commerce solution for a retail business, including product catalog, shopping cart, payment integration, and admin dashboard.",
-                    image: "https://via.placeholder.com/800x400",
-                    live: "#",
-                    source: "#"
-                },
-                2: {
-                    title: "Digital Marketing Campaign",
-                    description: "Comprehensive SEO and social media strategy for a local business. This campaign resulted in a 40% increase in organic traffic and a 25% boost in online conversions through targeted content and social media engagement.",
-                    image: "https://via.placeholder.com/800x400",
-                    live: "#",
-                    source: "#"
-                },
-                3: {
-                    title: "Corporate Branding",
-                    description: "Complete brand identity design including logo and marketing materials. This project involved creating a cohesive visual identity for a startup company, including logo design, color palette, typography, and brand guidelines.",
-                    image: "https://via.placeholder.com/800x400",
-                    live: "#",
-                    source: "#"
-                },
-                4: {
-                    title: "Phone Repair Service",
-                    description: "Professional phone repair and maintenance services for various models. This project involved setting up a repair service with diagnostic tools, spare parts inventory, and customer management system.",
-                    image: "https://via.placeholder.com/800x400",
-                    live: "#",
-                    source: "#"
-                },
-                5: {
-                    title: "Portfolio Website",
-                    description: "Custom portfolio website for a freelance photographer. This project involved creating a visually appealing portfolio to showcase the photographer's work, with image galleries, client testimonials, and booking functionality.",
-                    image: "https://via.placeholder.com/800x400",
-                    live: "#",
-                    source: "#"
-                },
-                6: {
-                    title: "Marketing Materials",
-                    description: "Brochures, flyers, and social media graphics for a startup. This project involved creating a suite of marketing materials to support the launch of a new product, including print and digital assets.",
-                    image: "https://via.placeholder.com/800x400",
-                    live: "#",
-                    source: "#"
-                }
-            };
-            
-            // Open modal when clicking on view project button
-            viewProjectButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const projectId = this.getAttribute('data-project');
-                    const project = projects[projectId];
-                    
-                    if (project) {
-                        document.getElementById('modal-title').textContent = project.title;
-                        document.getElementById('modal-img').src = project.image;
-                        document.getElementById('modal-description').innerHTML = `<p>${project.description}</p>`;
-                        document.getElementById('modal-live').href = project.live;
-                        document.getElementById('modal-source').href = project.source;
-                        
-                        projectModal.style.display = 'flex';
-                    }
-                });
-            });
-            
-            // Close modal
-            modalClose.addEventListener('click', function() {
-                projectModal.style.display = 'none';
-            });
-            
-            // Close modal when clicking outside
-            window.addEventListener('click', function(e) {
-                if (e.target === projectModal) {
-                    projectModal.style.display = 'none';
-                }
-            });
-            
-            // Animate skill bars when they come into view
-            const skillBars = document.querySelectorAll('.skill-progress-bar');
-            const skillsSection = document.querySelector('.skills-services');
-            
-            const skillsObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        skillBars.forEach(bar => {
-                            const width = bar.getAttribute('data-width');
-                            bar.style.width = width + '%';
-                        });
-                        skillsObserver.unobserve(entry.target);
-                    }
-                });
-            });
-            
-            if (skillsSection) {
-                skillsObserver.observe(skillsSection);
-            }
-            
-            // Blog Post Detail Functionality
-            const readMoreButtons = document.querySelectorAll('.read-more');
-            const blogPostPage = document.getElementById('blog-post-page');
-            
-            // Sample blog post data
-            const blogPosts = {
-                1: {
-                    title: "Top Web Development Trends in 2023",
-                    date: "June 15, 2023",
-                    comments: "5",
-                    image: "https://via.placeholder.com/800x400",
-                    content: `
-                        <p>The web development landscape is constantly evolving, with new technologies and approaches emerging every year. As we move through 2023, several key trends are shaping how developers build websites and applications.</p>
-                        
-                        <h2>Progressive Web Apps (PWAs)</h2>
-                        <p>Progressive Web Apps continue to gain traction as they bridge the gap between web and mobile applications. PWAs offer app-like experiences with features like offline functionality, push notifications, and home screen installation without the need for app store distribution.</p>
-                        
-                        <p>Major companies like Twitter, Starbucks, and Pinterest have successfully implemented PWAs, resulting in significant improvements in user engagement and conversion rates.</p>
-                        
-                        <h2>AI-Powered Development</h2>
-                        <p>Artificial Intelligence is revolutionizing web development through tools that automate coding, optimize performance, and enhance user experiences. AI-powered chatbots, personalized content recommendations, and automated testing are becoming standard features.</p>
-                        
-                        <blockquote>
-                            "AI is not replacing developers but augmenting their capabilities, allowing them to focus on more complex problems while automating repetitive tasks."
-                        </blockquote>
-                        
-                        <h2>Serverless Architecture</h2>
-                        <p>Serverless computing allows developers to build and run applications without managing infrastructure. This approach reduces operational costs, improves scalability, and enables faster deployment cycles.</p>
-                        
-                        <p>Popular serverless platforms include AWS Lambda, Google Cloud Functions, and Azure Functions, which have made it easier for developers to implement this architecture.</p>
-                        
-                        <h2>Conclusion</h2>
-                        <p>Staying current with web development trends is essential for creating modern, efficient, and user-friendly applications. By embracing these technologies, developers can build better products and deliver superior user experiences.</p>
-                    `,
-                    tags: ["Web Development", "Trends", "2023", "PWAs", "AI"]
-                },
-                2: {
-                    title: "SEO Strategies for Small Businesses",
-                    date: "May 28, 2023",
-                    comments: "3",
-                    image: "https://via.placeholder.com/800x400",
-                    content: `
-                        <p>Search Engine Optimization (SEO) is crucial for small businesses looking to increase their online visibility and attract more customers. While large corporations often have dedicated SEO teams and substantial budgets, small businesses can still compete effectively with the right strategies.</p>
-                        
-                        <h2>Local SEO Optimization</h2>
-                        <p>For small businesses serving specific geographic areas, local SEO is essential. This includes:</p>
-                        
-                        <ul>
-                            <li>Claiming and optimizing your Google My Business listing</li>
-                            <li>Ensuring consistent NAP (Name, Address, Phone) information across all online platforms</li>
-                            <li>Encouraging customer reviews and responding to them promptly</li>
-                            <li>Creating location-specific content and landing pages</li>
-                        </ul>
-                        
-                        <h2>Content Marketing</h2>
-                        <p>High-quality, relevant content is the foundation of any successful SEO strategy. Small businesses should focus on creating content that addresses their target audience's pain points and questions.</p>
-                        
-                        <p>This can include blog posts, how-to guides, case studies, and video content that demonstrates expertise and builds trust with potential customers.</p>
-                        
-                        <blockquote>
-                            "Content is not just king—it's the kingdom. Great content attracts links, shares, and ultimately, customers."
-                        </blockquote>
-                        
-                        <h2>Technical SEO Basics</h2>
-                        <p>While technical SEO can seem intimidating, small businesses should focus on the fundamentals:</p>
-                        
-                        <ul>
-                            <li>Ensuring website mobile-friendliness</li>
-                            <li>Improving page loading speed</li>
-                            <li>Creating a logical site structure with clear navigation</li>
-                            <li>Implementing proper meta tags and schema markup</li>
-                        </ul>
-                        
-                        <h2>Conclusion</h2>
-                        <p>SEO doesn't have to be complicated or expensive for small businesses. By focusing on local optimization, creating valuable content, and implementing basic technical improvements, small businesses can significantly improve their search visibility and attract more customers.</p>
-                    `,
-                    tags: ["SEO", "Small Business", "Digital Marketing", "Local SEO"]
-                },
-                3: {
-                    title: "Common Phone Repair Issues and Solutions",
-                    date: "April 12, 2023",
-                    comments: "7",
-                    image: "https://via.placeholder.com/800x400",
-                    content: `
-                        <p>Smartphones have become essential tools in our daily lives, but they're also prone to various issues. Understanding common phone problems and their solutions can help you troubleshoot issues before seeking professional repair services.</p>
-                        
-                        <h2>Battery Drain Issues</h2>
-                        <p>Rapid battery drain is one of the most common smartphone complaints. Before assuming your battery needs replacement, try these solutions:</p>
-                        
-                        <ul>
-                            <li>Check for battery-intensive apps in your settings</li>
-                            <li>Reduce screen brightness and timeout duration</li>
-                            <li>Disable unnecessary background app refresh</li>
-                            <li>Turn off location services for apps that don't need them</li>
-                            <li>Update your operating system and apps</li>
-                        </ul>
-                        
-                        <p>If these steps don't help, your battery may indeed need replacement, especially if your phone is more than two years old.</p>
-                        
-                        <h2>Cracked Screens</h2>
-                        <p>A cracked screen is both a cosmetic and functional issue. While minor cracks might not affect usability, larger cracks can compromise touch sensitivity and display quality.</p>
-                        
-                        <p>For temporary protection while waiting for repair:</p>
-                        
-                        <ul>
-                            <li>Apply a screen protector to prevent further cracking</li>
-                            <li>Use clear packing tape if a screen protector isn't available</li>
-                            <li>Avoid pressing on the cracked area</li>
-                        </ul>
-                        
-                        <blockquote>
-                            "Professional screen replacement is recommended for most cracked screens to maintain water resistance and device integrity."
-                        </blockquote>
-                        
-                        <h2>Charging Port Problems</h2>
-                        <p>If your phone isn't charging properly, the issue might be with the charging port rather than the cable or charger. Common signs include:</p>
-                        
-                        <ul>
-                            <li>Loose connection when plugging in the charger</li>
-                            <li>Charging only works at certain angles</li>
-                            <li>Visible debris or damage in the port</li>
-                        </ul>
-                        
-                        <p>To clean the charging port:</p>
-                        
-                        <ol>
-                            <li>Turn off your phone completely</li>
-                            <li>Use a toothpick or plastic dental pick to gently remove debris</li>
-                            <li>Compressed air can help blow out smaller particles</li>
-                            <li>Avoid using metal objects that could damage the port</li>
-                        </ol>
-                        
-                        <h2>Conclusion</h2>
-                        <p>Many common phone issues can be resolved with simple troubleshooting. However, for complex problems or physical damage, professional repair services are recommended to avoid further damage to your device.</p>
-                    `,
-                    tags: ["Phone Repair", "Troubleshooting", "Battery", "Screen Repair"]
-                }
-            };
-            
-            // Open blog post when clicking read more
-            readMoreButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const postId = this.getAttribute('data-post');
-                    const post = blogPosts[postId];
-                    
-                    if (post) {
-                        document.getElementById('blog-post-title').textContent = post.title;
-                        document.getElementById('blog-post-date').textContent = post.date;
-                        document.getElementById('blog-post-comments').textContent = post.comments + " Comments";
-                        document.getElementById('blog-post-image').src = post.image;
-                        document.getElementById('blog-post-content').innerHTML = post.content;
-                        
-                        // Update tags
-                        const tagsContainer = document.querySelector('.blog-post-tags');
-                        tagsContainer.innerHTML = '';
-                        post.tags.forEach(tag => {
-                            const tagElement = document.createElement('span');
-                            tagElement.className = 'blog-post-tag';
-                            tagElement.textContent = tag;
-                            tagsContainer.appendChild(tagElement);
-                        });
-                        
-                        // Show blog post page
-                        showPage('blog-post');
-                    }
-                });
-            });
-            
-            // Blog post navigation
-            document.getElementById('prev-post').addEventListener('click', function(e) {
-                e.preventDefault();
-                // In a real implementation, this would navigate to the previous post
-                alert('This would navigate to the previous blog post in a real implementation.');
-            });
-            
-            document.getElementById('next-post').addEventListener('click', function(e) {
-                e.preventDefault();
-                // In a real implementation, this would navigate to the next post
-                alert('This would navigate to the next blog post in a real implementation.');
+            // Floating Action Button
+            const contactFab = document.getElementById('contact-fab');
+            contactFab.addEventListener('click', function() {
+                showPage('contact');
             });
             
             // Service Calculator
@@ -3172,6 +2877,49 @@
             }
             
             createParticles();
+            
+            // Stagger Animation Trigger
+            function triggerStaggerAnimations() {
+                const staggerElements = document.querySelectorAll('.stagger-animation > *');
+                staggerElements.forEach(el => {
+                    el.style.animation = 'none';
+                    setTimeout(() => {
+                        el.style.animation = '';
+                    }, 10);
+                });
+            }
+            
+            // Animate skill bars when they come into view
+            const skillBars = document.querySelectorAll('.skill-progress-bar');
+            const skillsSection = document.querySelector('.skills-services');
+            
+            const skillsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        skillBars.forEach(bar => {
+                            const width = bar.getAttribute('data-width');
+                            bar.style.width = width + '%';
+                        });
+                        skillsObserver.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            if (skillsSection) {
+                skillsObserver.observe(skillsSection);
+            }
+            
+            // Add pulse animation to CTA buttons on hover
+            const ctaButtons = document.querySelectorAll('.btn-accent');
+            ctaButtons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.classList.add('pulse');
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.classList.remove('pulse');
+                });
+            });
         });
     </script>
 </body>
